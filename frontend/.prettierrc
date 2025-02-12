@@ -1,0 +1,14 @@
+{
+    "semi": true,
+    "tabWidth": 4,
+    "bracketSameLine": true,
+    "printWidth": 150,
+    "overrides": [
+        {
+            "files": "*.html",
+            "options": {
+                "parser": "angular"
+            }
+        }
+    ]
+}
