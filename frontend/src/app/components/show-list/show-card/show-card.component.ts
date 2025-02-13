@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
     selector: 'app-show-card',
     templateUrl: './show-card.component.html',
     styleUrl: './show-card.component.scss',
+    standalone: true,
     imports: [CommonModule, RouterModule],
 })
 export class ShowCardComponent {

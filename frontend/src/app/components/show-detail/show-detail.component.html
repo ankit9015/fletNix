@@ -1,0 +1,32 @@
+<div class="bg-gray-100 min-h-screen py-6">
+    <div class="container mx-auto px-4">
+        <div class="bg-white shadow-md rounded-lg overflow-hidden max-w-lg mx-auto">
+            <div class="p-6">
+                @if (loading) {
+                    <div class="text-center text-gray-500">Loading...</div>
+                }
+
+                @if (show) {
+                    <div>
+                        <h2 class="show-title text-2xl font-bold text-gray-800 mb-4">
+                            {{ show.title }}
+                        </h2>
+                        <p class="show-description text-gray-700 leading-relaxed mb-4">
+                            {{ show.description }}
+                        </p>
+
+                        <p class="text-gray-600 mb-2"><strong>Type:</strong> {{ show.type }}</p>
+                        <p class="text-gray-600 mb-2"><strong>Director:</strong> {{ show.director || "N/A" }}</p>
+                        <p class="text-gray-600 mb-2"><strong>Cast:</strong> {{ show.cast || "N/A" }}</p>
+                        <p class="text-gray-600 mb-2"><strong>Country:</strong> {{ show.country || "N/A" }}</p>
+                        <p class="text-gray-600 mb-2"><strong>Date Added:</strong> {{ show.date_added || "N/A" }}</p>
+                        <p class="text-gray-600 mb-2"><strong>Release Year:</strong> {{ show.release_year }}</p>
+                        <p class="text-gray-600 mb-2"><strong>Rating:</strong> {{ show.rating }}</p>
+                        <p class="text-gray-600 mb-2"><strong>Duration:</strong> {{ show.duration }}</p>
+                        <p class="text-gray-600 mb-2"><strong>Listed In:</strong> {{ show.listed_in }}</p>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -11,22 +11,22 @@ import { ShowCardComponent } from './show-card/show-card.component';
 
 @Component({
     selector: 'app-show-list',
-    standalone: true,
-    imports: [CommonModule, FormsModule, ShowCardComponent], // Add CommonModule, FormsModule, RouterLink
     templateUrl: './show-list.component.html',
     styleUrls: ['./show-list.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: true,
+    imports: [CommonModule, FormsModule, ShowCardComponent],
 })
 export class ShowListComponent implements OnInit {
     ShowTypeEnum: typeof ShowTypeEnum = ShowTypeEnum;
     shows: Show[] = [];
     currentPage = 1;
     totalPages = 1;
-    searchTerm: string = '';
+    searchTerm = '';
     filterType: ShowTypeEnum | undefined = undefined;
     user: User | undefined = undefined;
-    loading: boolean = true;
-    error: string = '';
+    loading = true;
+    error = '';
 
     constructor(
         private cdr: ChangeDetectorRef,
@@ -34,12 +34,12 @@ export class ShowListComponent implements OnInit {
         private authService: AuthService,
     ) {}
 
-    ngOnInit(): void {
+    ngOnInit() {
         this.loadShows();
         this.user = this.authService.user;
     }
 
-    loadShows(): void {
+    loadShows() {
         this.loading = true;
         if (this.currentPage == 1) {
             this.shows = [];
@@ -62,17 +62,17 @@ export class ShowListComponent implements OnInit {
         });
     }
 
-    searchShows(): void {
+    searchShows() {
         this.currentPage = 1;
         this.loadShows();
     }
 
-    onPageChange(pageNumber: number): void {
+    onPageChange(pageNumber: number) {
         this.currentPage = pageNumber;
         this.loadShows();
     }
 
-    onFilterTypeChange(type: ShowTypeEnum): void {
+    onFilterTypeChange(type: ShowTypeEnum) {
         this.filterType = type;
         this.currentPage = 1;
         this.loadShows();
