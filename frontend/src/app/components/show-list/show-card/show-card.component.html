@@ -1,11 +1,11 @@
 <div class="show-item bg-white shadow-md rounded-lg overflow-hidden">
     <a [routerLink]="['/shows', show._id]" class="block p-4">
-        <h3 class="text-lg font-semibold text-gray-800 truncate mb-3">{{ show.title }}</h3>
-        <p class="text-gray-600 text-sm truncate"><strong>Type:</strong> {{ show.type }}</p>
-        <p class="text-gray-500 text-sm truncate"><strong>Director:</strong> {{ show.director }}</p>
-        <p class="text-gray-500 text-sm truncate"><strong>Cast:</strong> {{ show.cast }}</p>
-        <p class="text-gray-500 text-sm truncate"><strong>Release Year:</strong> {{ show.release_year }}</p>
-        <p class="text-gray-500 text-sm truncate"><strong>Rating:</strong> {{ show.rating }}</p>
-        <p class="text-gray-500 text-sm truncate"><strong>Genres:</strong> {{ show.listed_in }}</p>
+        <h3 class="show-title text-lg font-semibold text-gray-800 truncate mb-3">{{ show.title }}</h3>
+        <p class="show-type text-gray-600 text-sm truncate"><strong>Type:</strong> {{ show.type }}</p>
+        <p class="show-director text-gray-500 text-sm truncate"><strong>Director:</strong> {{ show.director }}</p>
+        <p class="show-cast text-gray-500 text-sm truncate"><strong>Cast:</strong> {{ show.cast }}</p>
+        <p class="show-release-year text-gray-500 text-sm truncate"><strong>Release Year:</strong> {{ show.release_year }}</p>
+        <p class="show-rating text-gray-500 text-sm truncate" [attr.data-rating]="show.rating"><strong>Rating:</strong>{{ show.rating }}</p>
+        <p class="show-listed-in text-gray-500 text-sm truncate"><strong>Genres:</strong> {{ show.listed_in }}</p>
     </a>
 </div>
