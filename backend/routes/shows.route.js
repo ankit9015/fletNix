@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Show = require("../models/show");
+const Show = require("../models/Show");
 const authMiddleware = require("../middlewares/auth.middleware");
 
 // filter shows
