@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 // Middleware
 app.use(
 	cors({
-		origin: process.env.APP_URL,
+		origin: [process.env.APP_URL, 'https://fletnix-ankit.netlify.app'],
 		methods: ["GET", "POST", "PUT", "DELETE"],
 		allowedHeaders: ["Content-Type", "Authorization"],
 	})
