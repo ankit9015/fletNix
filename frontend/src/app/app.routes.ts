@@ -9,13 +9,14 @@ import { ShowDetailComponent } from './components/show-detail/show-detail.compon
 export const routes: Routes = [
     { path: 'login', title: 'Login', component: LoginComponent },
     { path: 'register', title: 'Register', component: RegisterComponent },
-    { path: 'shows', component: ShowListComponent, canActivate: [authGuard] },
+    { path: 'shows', title: 'Shows', component: ShowListComponent, canActivate: [authGuard] },
     {
         path: 'shows/:showId',
+        title: 'Show Detail',
         component: ShowDetailComponent,
         canActivate: [authGuard],
     },
     { path: '', redirectTo: '/shows', pathMatch: 'full' },
-    { path: 'error', component: PageNotFoundComponent },
+    { path: 'error', title: 'Error', component: PageNotFoundComponent },
     { path: '**', redirectTo: '/error' },
 ];
