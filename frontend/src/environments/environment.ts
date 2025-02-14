@@ -1,5 +1,5 @@
 export const environment = {
     production: true,
-    apiUrl: '',
+    apiUrl: 'https://fletnix-production-8d96.up.railway.app/',
     appUrl: '',
 };
