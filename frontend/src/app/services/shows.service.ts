@@ -19,7 +19,7 @@ export class ShowService {
     constructor(private http: HttpClient) {}
 
     filterShows(search: string, type: ShowTypeEnum | undefined, page = 1, listSize = 15): Observable<GetShowsResponse> {
-        let url = environment.apiUrl + `/shows?page=${page}&listSize=${listSize}`;
+        let url = environment.apiUrl + `/api/shows?page=${page}&listSize=${listSize}`;
         if (type) {
             url += `&type=${type}`;
         }
@@ -31,7 +31,7 @@ export class ShowService {
     }
 
     getShow(id: string): Observable<Show> {
-        let url = environment.apiUrl + `/shows/${id}`;
+        let url = environment.apiUrl + `/api/shows/${id}`;
         return this.http.get<Show>(`${url}/`);
     }
 }

@@ -10,7 +10,7 @@ import { User } from '../models/User';
     providedIn: 'root',
 })
 export class AuthService {
-    private baseUrl = environment.apiUrl + '/auth';
+    private baseUrl = environment.apiUrl + '/api/auth';
     private jwtHelper = new JwtHelperService();
     user: User | undefined = undefined;
 
