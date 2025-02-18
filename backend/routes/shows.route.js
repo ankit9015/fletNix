@@ -24,9 +24,33 @@ router.get("/", authMiddleware, async (req, res) => {
 
 		const page = parseInt(req.query.page) || 1;
 		const limit = parseInt(req.query.listSize) || 15;
-		const skip = (page - 1) * limit;
 
-		const shows = await Show.find(query).skip(skip).limit(limit);
+		// Sort function won't work as the date fields are saved as string instead of Date
+		// Use aggregate and convert date_added of type "String" to "Date"
+		// https://stackoverflow.com/questions/10942931/converting-string-to-date-in-mongodb
+		const shows = await Show.aggregate([
+			{
+				$addFields: {
+					date_added_iso: {
+						$cond: [
+							{ $eq: ["$date_added", ""] },
+							null,
+							{ $toDate: "$date_added" },
+						],
+					},
+				},
+			},
+			{
+				$sort: { date_added_iso: -1 },
+			},
+			{
+				$skip: (page - 1) * limit,
+			},
+			{
+				$limit: limit,
+			},
+		]);
+
 		const totalShows = await Show.countDocuments(query);
 		res.json({
 			shows,
